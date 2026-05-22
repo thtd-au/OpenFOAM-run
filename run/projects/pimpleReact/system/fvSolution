@@ -43,6 +43,14 @@ solvers
         $U;
         relTol          0;
     }
+
+    "(H2|O2)"
+    {
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance       1e-10;
+        relTol          0;
+    }
 }
 
 PIMPLE
