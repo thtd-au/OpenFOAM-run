@@ -67,6 +67,9 @@ run/**/constant/polyMesh/
 *.mp4
 *.avi
 
+# OpenFOAM logs
+log.*
+
 # -----------------------------------------------------------------------------
 # ParaView
 # Keep .pvsm if visualization setup matters to the project
