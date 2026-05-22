@@ -24,7 +24,7 @@ run/**/processors*/
 # Sandbox work area
 run/sandbox/
 # misc folder 
-run/misc
+misc/
 
 # -----------------------------------------------------------------------------
 # Time directories and solver results
