@@ -9,6 +9,6 @@ blockMesh	2>&1 | tee log.blockMesh
 checkMesh	2>&1 | tee log.checkMesh
 decomposePar	2>&1 | tee log.decomposePar
 
-mpirun -np "$nProcs" pimpleFoam -parallel 2>&1 | tee log.pimpleFoam
+mpirun -np "$nProcs" pimpleFoamReact -parallel 2>&1 | tee log.pimpleFoamReact
 
 reconstructPar 2>&1 | tee log.reconstructPar
