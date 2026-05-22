@@ -20,6 +20,8 @@ codeStream/
 # -----------------------------------------------------------------------------
 run/**/processor*/
 run/**/processors*/
+# Sandbox work area
+run/sandbox/
 
 # -----------------------------------------------------------------------------
 # Time directories and solver results
