@@ -1,0 +1,14 @@
+#!/bin/sh
+cd "${0%/*}" || exit 1
+
+. "${WM_PROJECT_DIR:?}/bin/tools/RunFunctions"
+
+nProcs="$(foamDictionary system/decomposeParDict -entry numberOfSubdomains -value)"
+
+blockMesh	2>&1 | tee log.blockMesh
+checkMesh	2>&1 | tee log.checkMesh
+decomposePar	2>&1 | tee log.decomposePar
+
+mpirun -np "$nProcs" pimpleFoam -parallel 2>&1 | tee log.pimpleFoam
+
+reconstructPar 2>&1 | tee log.reconstructPar
