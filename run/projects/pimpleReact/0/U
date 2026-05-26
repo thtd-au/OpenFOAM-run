@@ -16,7 +16,7 @@ FoamFile
 
 dimensions      [0 1 -1 0 0 0 0];
 
-internalField   uniform (0 0 0.025);
+internalField   uniform (0 0 0); // 0.025
 
 boundaryField
 {
@@ -36,6 +36,15 @@ boundaryField
         type            noSlip;
     }
 
+    cathode
+    {
+        type            noSlip;
+    }
+
+    anode
+    {
+        type            noSlip;
+    }
 }
 
 

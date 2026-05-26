@@ -3,19 +3,19 @@ FoamFile
     version     2.0;
     format      ascii;
     class       volScalarField;
-    object      H2O;
+    object      OHminus;
 }
 
 dimensions      [0 0 0 0 0 0 0];
 
-internalField   uniform 1;
+internalField   uniform 0;
 
 boundaryField
 {
     inlet
     {
         type            fixedValue;
-        value           uniform 1;
+        value           uniform 0;
     }
 
     outlet
@@ -30,7 +30,11 @@ boundaryField
 
     cathode
     {
-        type            zeroGradient;
+        type            faradaicMoleFractionFlux;
+        stoichCoeff     2;
+        nElectrons      2;
+        currentDensity  10000;
+        value           uniform 0;
     }
 
     anode

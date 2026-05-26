@@ -15,7 +15,7 @@ boundaryField
     inlet
     {
         type            fixedValue;
-        value           uniform 0.3;
+        value           uniform 0;
     }
 
     outlet
@@ -26,5 +26,19 @@ boundaryField
     wall
     {
         type            zeroGradient;
+    }
+
+    cathode
+    {
+        type            zeroGradient;
+    }
+    
+    anode
+    {
+        type            faradaicMoleFractionFlux;
+        stoichCoeff     1;
+        nElectrons      4;
+        currentDensity  10000;
+        value           uniform 0;
     }
 }

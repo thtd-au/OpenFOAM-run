@@ -44,11 +44,11 @@ solvers
         relTol          0;
     }
 
-    "(H2|O2)"
+    "(H2|O2|Hplus|OHminus)"
     {
         solver          smoothSolver;
         smoother        symGaussSeidel;
-        tolerance       1e-10;
+        tolerance       1e-6;
         relTol          0;
     }
 }

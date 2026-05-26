@@ -36,6 +36,15 @@ boundaryField
         type            zeroGradient;
     }
 
+    cathode
+    {
+        type            zeroGradient;
+    }
+
+    anode
+    {
+        type            zeroGradient;
+    }
 }
 
 

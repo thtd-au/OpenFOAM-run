@@ -17,26 +17,27 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-elements
-(
-    H
-    O
-);
-
 species
 (
     H2O
     H2
     O2
+    Hplus
+    OHminus
 );
 
 inertSpecie H2O;
 
-diffusivity
+FaradayConstant         96485.3329;
+solutionConcentration   55500;  // mol/m3
+
+diffusivity // No H2O as this is treated as inert (not solved)
 {
-    H2 4.5e-9;
-    O2 2.0e-9;
-}
+    H2   4.5e-9;
+    O2   2.0e-9;
+    OHminus   5.3e-9;
+    Hplus    9.3e-9;
+}   
 
 reactions
 {

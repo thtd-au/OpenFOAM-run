@@ -8,7 +8,7 @@ FoamFile
 
 dimensions      [0 0 0 0 0 0 0];
 
-internalField   uniform 0.50;
+internalField   uniform 0;
 
 boundaryField
 {
@@ -24,6 +24,20 @@ boundaryField
     }
 
     wall
+    {
+        type            zeroGradient;
+    }
+
+    cathode
+    {
+        type            faradaicMoleFractionFlux;
+        stoichCoeff     1;
+        nElectrons      2;
+        currentDensity  10000;
+        value           uniform 0;
+    }
+
+    anode
     {
         type            zeroGradient;
     }
