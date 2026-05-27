@@ -28,13 +28,16 @@ boundaryField
         type            zeroGradient;
     }
 
+    // use calculate to enforce species conservation at boundaries as zerogradient overwrites this value otherwise
     cathode
     {
-        type            zeroGradient;
+        type            calculated;
+        value           uniform 1;
     }
 
     anode
     {
-        type            zeroGradient;
+        type            calculated;
+        value           uniform 1;
     }
 }
