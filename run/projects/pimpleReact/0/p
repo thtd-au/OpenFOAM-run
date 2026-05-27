@@ -13,10 +13,12 @@ FoamFile
     object      p;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+// kinematic pressure 
+// p_kin = P_thd / rho
 
 dimensions      [0 2 -2 0 0 0 0];
 
-internalField   uniform 0;
+internalField   uniform 101.325; 
 
 boundaryField
 {

@@ -38,7 +38,7 @@ boundaryField
         type            faradaicMoleFractionFlux;
         stoichCoeff     4;
         nElectrons      4;
-        currentDensity  10000;
+        currentDensity  5e3;
         value           uniform 0;
     }
 }
