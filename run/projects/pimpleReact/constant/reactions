@@ -29,7 +29,7 @@ species
 inertSpecie H2O;
 
 FaradayConstant         96485.3329;
-solutionConcentration   55500;  // mol/m3
+totalMolarConcentration   55500;  // mol/m3
 
 diffusivity // No H2O as this is treated as inert (not solved)
 {
