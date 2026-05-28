@@ -16,4 +16,4 @@ mpirun -np "$nProcs" \
 -lib '(libfaradaicBCs.so)' \
 2>&1 | tee log.pimpleFoamReact
 
-reconstructPar 2>&1 | tee log.reconstructPar
+mpirun -np "$nProcs" reconstructPar 2>&1 | tee log.reconstructPar

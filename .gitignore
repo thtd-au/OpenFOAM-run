@@ -69,6 +69,7 @@ run/**/constant/polyMesh/
 *.jpeg
 *.mp4
 *.avi
+*.pvsm 
 
 # OpenFOAM logs
 log.*
