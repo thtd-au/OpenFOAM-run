@@ -52,4 +52,17 @@ reactions
 {
 }
 
+// Diagnostics check 
+speciesConservation
+{
+    mode                   total;   // none | total | full
+    logToInfo              true;
+    writeToFile            true;
+    allPatchDiagnostics    true;
+    printPatchBreakdown    false;
+    warningTolerance       1e-20;
+
+    flowPatches            (inlet outlet);
+    electrodePatches       (cathode anode);
+}
 // ************************************************************************* //
