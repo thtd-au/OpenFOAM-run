@@ -36,7 +36,7 @@ boundaryField
     anode
     {
         type            faradaicMassFractionFlux;
-        stoichCoeff     -4;
+        stoichCoeff     4;
         nElectrons      4;
         currentDensity  1e4;
         value           uniform 0;

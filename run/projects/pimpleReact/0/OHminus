@@ -31,7 +31,7 @@ boundaryField
     cathode
     {
         type            faradaicMassFractionFlux;
-        stoichCoeff     -2;
+        stoichCoeff     2;
         nElectrons      2;
         currentDensity  1e4;
         value           uniform 0;

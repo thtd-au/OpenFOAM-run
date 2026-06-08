@@ -30,8 +30,9 @@ inertSpecie H2O;
 
 FaradayConstant 96485.3329;
 
-diffusivity // No H2O as this is treated as inert (not solved)
+diffusivity 
 {
+    H2O     2.3e-9;
     H2      4.5e-9;
     O2      2.0e-9;
     OHminus 5.3e-9;
@@ -40,7 +41,7 @@ diffusivity // No H2O as this is treated as inert (not solved)
 
 molarMass 
 {
-    // H2O     0.01801528;
+    H2O     0.01801528;
     H2      0.00201588;
     O2      0.0319988;
     OHminus 0.01700734;
