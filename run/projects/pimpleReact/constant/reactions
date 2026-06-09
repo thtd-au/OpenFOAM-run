@@ -52,6 +52,14 @@ reactions
 {
 }
 
+absolutePressureReference 101325;
+
+henryConstant // [mol/m3 Pa]
+{
+    H2  7.8e-6;
+    O2  1.3e-5;
+}
+
 // Diagnostics check 
 speciesConservation
 {
@@ -66,3 +74,4 @@ speciesConservation
     electrodePatches       (cathode anode);
 }
 // ************************************************************************* //
+
