@@ -25,6 +25,7 @@ species
     O2
     Hplus
     OHminus
+    Acetate
 );
 
 inertSpecie H2O;
