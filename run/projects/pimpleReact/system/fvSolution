@@ -44,7 +44,7 @@ solvers
         relTol          0;
     }
 
-    "(H2|O2|Hplus|OHminus)"
+    "(Y_CO2|Y_H2|Y_O2|Y_Hplus|Y_OHminus)"
     {
         solver          smoothSolver;
         smoother        symGaussSeidel;

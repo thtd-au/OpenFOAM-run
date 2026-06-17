@@ -42,10 +42,10 @@ timePrecision   6;
 
 runTimeModifiable false;
 
-libs
-(
-    "$FOAM_USER_LIBBIN/libfaradaicBCs.so"
-);
+// libs
+// (
+//     "$FOAM_USER_LIBBIN/libfaradaicBCs.so"
+// );
 
 
 // ************************************************************************* //
