@@ -25,7 +25,7 @@ species
     O2
     Hplus
     OHminus
-    Acetate
+    Acetate // CH3COOminus
 );
 
 inertSpecie H2O;
@@ -51,11 +51,29 @@ molarMass
     O2      0.031998;
     OHminus 0.017007;
     Hplus   0.0010080;
-    Acetate 0.059044;   // CH3COOminus
+    Acetate 0.059044;   
 }   
 
 reactions
 {
+    acetogenesis
+    {
+        type          multiplicativeMonod;
+
+        stoichiometry
+        {
+            CO2     -2;
+            H2      -4;
+            Acetate  1;
+            Hplus    1;
+            H2O      2;
+        }
+
+        substrates   (H2 CO2);
+        K            (0.02 0.02);       // mol/m3, same order as substrates
+        qMax         2.31e-3;           // mol/kgDW s, or define your own unit
+        X            50;                // kgDW/m3
+    }
 }
 
 absolutePressureReference 101325;
