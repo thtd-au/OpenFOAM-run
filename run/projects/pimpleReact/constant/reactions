@@ -39,6 +39,7 @@ diffusivity
     O2      3.49e-9;
     OHminus 9.31e-9;
     Hplus   5.27e-9;
+    Acetate 1.10e-9;
 }   
 
 molarMass 
@@ -49,6 +50,7 @@ molarMass
     O2      0.031998;
     OHminus 0.017007;
     Hplus   0.0010080;
+    Acetate 0.059044;   // CH3COOminus
 }   
 
 reactions
