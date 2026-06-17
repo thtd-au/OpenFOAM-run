@@ -20,6 +20,7 @@ FoamFile
 species
 (
     H2O
+    CO2
     H2
     O2
     Hplus
@@ -33,19 +34,21 @@ FaradayConstant 96485.3329;
 diffusivity 
 {
     H2O     2.3e-9;
-    H2      4.5e-9;
-    O2      2.0e-9;
-    OHminus 5.3e-9;
-    Hplus   9.3e-9;
+    CO2     1.95e-9;
+    H2      3.2e-9;
+    O2      3.49e-9;
+    OHminus 9.31e-9;
+    Hplus   5.27e-9;
 }   
 
 molarMass 
 {
-    H2O     0.01801528;
-    H2      0.00201588;
-    O2      0.0319988;
-    OHminus 0.01700734;
-    Hplus   0.00100794;
+    H2O     0.018015;
+    CO2     0.044009;
+    H2      0.002016;
+    O2      0.031998;
+    OHminus 0.017007;
+    Hplus   0.0010080;
 }   
 
 reactions
@@ -56,6 +59,7 @@ absolutePressureReference 101325;
 
 henryConstant // [mol/m3 Pa]
 {
+    CO2 3.4e-4;
     H2  7.8e-6;
     O2  1.3e-5;
 }
