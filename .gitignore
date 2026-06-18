@@ -26,6 +26,8 @@ run/sandbox/
 # misc folder 
 misc/
 
+run/meshes/test/
+
 # -----------------------------------------------------------------------------
 # Time directories and solver results
 # Keep initial conditions in /0
@@ -101,3 +103,8 @@ slurm-*.out
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+
+# Python virtual environments
+.venv/
+venv/
+env/
