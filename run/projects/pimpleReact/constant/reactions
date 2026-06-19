@@ -85,6 +85,14 @@ henryConstant // [mol/m3 Pa]
     O2  1.3e-5;
 }
 
+writeCFields        true;  // c_*
+writeSFields        true;  // S_*
+writeSTotField      true;  // S_tot
+writePEqFields      false;  // pEq_*
+writePEqTotField    false;  // pEq_tot
+writeRYFields       false;  // RY_*
+
+
 // Diagnostics check 
 speciesConservation
 {

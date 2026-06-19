@@ -17,3 +17,8 @@ mpirun -np "$nProcs" \
 2>&1 | tee log.pimpleFoamReact
 
 mpirun -np "$nProcs" reconstructPar 2>&1 | tee log.reconstructPar
+
+postProcess -func writeCellCentres -time 0
+
+rm -rf processor*
+
