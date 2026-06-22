@@ -22,7 +22,7 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         30;
+endTime         5;
 
 deltaT          0.005;
 
@@ -42,10 +42,41 @@ timePrecision   6;
 
 runTimeModifiable false;
 
-// libs
-// (
-//     "$FOAM_USER_LIBBIN/libfaradaicBCs.so"
-// );
+reaction
+{
+    writeSources     false; // RY_* fields 
+}
 
+// Diagnostics check 
+speciesConservation
+{
+    mode                   none;   // none | total | full
+    logToInfo              true;
+    writeToFile            true;
+    allPatchDiagnostics    false;
+    printPatchBreakdown    false;
+    warningTolerance       1e-20;
+
+    flowPatches            (inlet outlet);
+    electrodePatches       (cathode anode);
+}
+
+// enable reconstruction of concentration fields from mass-fraction
+concentration
+{
+    runConcentration true;
+    writeCFields     false;
+}
+
+// enable species saturation tracking
+saturation
+{
+    runSaturation    true;
+    writeSFields     false;
+    writeSTotField   false;
+    writePEqFields   false;
+    writePEqTotField false;
+}
 
 // ************************************************************************* //
+
