@@ -22,7 +22,7 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         5;
+endTime         30;
 
 deltaT          0.005;
 
@@ -42,6 +42,12 @@ timePrecision   6;
 
 runTimeModifiable false;
 
+species 
+{
+    printYFields    true;
+    printDiagnostics true;
+}
+
 reaction
 {
     writeSources     false; // RY_* fields 
@@ -50,7 +56,7 @@ reaction
 // Diagnostics check 
 speciesConservation
 {
-    mode                   none;   // none | total | full
+    mode                   total;   // none | total | full
     logToInfo              true;
     writeToFile            true;
     allPatchDiagnostics    false;
