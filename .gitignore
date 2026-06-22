@@ -28,6 +28,9 @@ misc/
 
 run/meshes/test/
 
+# post porcessed data
+run/post/data/
+
 # -----------------------------------------------------------------------------
 # Time directories and solver results
 # Keep initial conditions in /0
