@@ -32,6 +32,8 @@ inertSpecie H2O;
 
 FaradayConstant 96485.3329;
 
+absolutePressureReference 101325;
+
 diffusivity 
 {
     H2O     2.3e-9;
@@ -53,6 +55,13 @@ molarMass
     Hplus   0.0010080;
     Acetate 0.059044;   
 }   
+
+henryConstant // [mol/m3 Pa]
+{
+    CO2 3.4e-4;
+    H2  7.8e-6;
+    O2  1.3e-5;
+}
 
 reactions
 {
@@ -76,14 +85,6 @@ reactions
     }
 }
 
-absolutePressureReference 101325;
-
-henryConstant // [mol/m3 Pa]
-{
-    CO2 3.4e-4;
-    H2  7.8e-6;
-    O2  1.3e-5;
-}
 
 // ************************************************************************* //
 
