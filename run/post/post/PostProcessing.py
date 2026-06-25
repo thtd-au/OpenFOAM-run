@@ -423,3 +423,12 @@ class OpenFOAMRawCase:
                 out[t].append(p)
 
         return out
+    
+    def fetch_profiles_multi(self, fields, time, along, fixed):
+        if isinstance(fields, str):
+            fields = [fields]
+
+        return [
+            self.profile(time, field, along=along, fixed=fixed)
+            for field in fields
+        ]
