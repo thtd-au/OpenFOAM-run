@@ -1,0 +1,18 @@
+#!/bin/sh
+cd "${0%/*}" || exit 1
+
+rm -rf \
+    processor* \
+    postProcessing \
+    log* \
+    *.OpenFOAM \
+    *.foam \
+    constant/polyMesh \
+    blockMesh \
+    checkMesh \
+    decomposePar
+
+for d in [0-9]*; do
+    [ "$d" = "0" ] && continue
+    [ -d "$d" ] && rm -rf "$d"
+done
