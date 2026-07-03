@@ -22,7 +22,7 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         30;
+endTime         5;
 
 deltaT          0.005;
 
@@ -52,6 +52,28 @@ reaction
 {
     writeSources     false; // RY_* fields 
 }
+// enable reconstruction of concentration fields from mass-fraction
+concentration
+{
+    runConcentration true;
+    writeCFields     true;
+}
+
+pH
+{
+    runPH          true;
+    writePHField   true;
+}
+
+// enable species saturation tracking
+saturation
+{
+    runSaturation    true;
+    writeSFields     false;
+    writeSTotField   false;
+    writePEqFields   false;
+    writePEqTotField false;
+}
 
 // Diagnostics check 
 speciesConservation
@@ -67,22 +89,7 @@ speciesConservation
     electrodePatches       (cathode anode);
 }
 
-// enable reconstruction of concentration fields from mass-fraction
-concentration
-{
-    runConcentration true;
-    writeCFields     false;
-}
 
-// enable species saturation tracking
-saturation
-{
-    runSaturation    true;
-    writeSFields     false;
-    writeSTotField   false;
-    writePEqFields   false;
-    writePEqTotField false;
-}
 
 // ************************************************************************* //
 

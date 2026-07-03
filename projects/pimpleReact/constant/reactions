@@ -83,6 +83,16 @@ reactions
         qMax         2.31e-3;           // mol/kgDW s, or define your own unit
         X            50;                // kgDW/m3
     }
+
+    waterEquilibrium
+    {
+        type waterEquilibrium;
+        
+        Hplus       Hplus;
+        OHminus     OHminus;
+        
+        Kw          1e-8; // Kw = 10^-14 (mol/L)^2  = 10^-8 (mol/m3)^2
+    }
 }
 
 

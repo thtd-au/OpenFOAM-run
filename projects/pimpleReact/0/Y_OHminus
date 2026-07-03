@@ -14,8 +14,10 @@ boundaryField
 {
     inlet
     {
-        type            fixedValue;
-        value           uniform 0;
+        // type            fixedValue;
+        // value           uniform 0;
+        type            pHMassFraction;
+        pH              7.0;
     }
 
     outlet
