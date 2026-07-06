@@ -1,0 +1,97 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+
+scale 1;
+
+vertices
+(
+    (0   0      0)     // 0
+    (0.001 0      0)     // 1
+    (0.001 0.0025 0)    // 2
+    (0   0.0025 0)    // 3
+
+    (0   0      0.05)   // 4
+    (0.001 0      0.05)   // 5
+    (0.001 0.0025 0.05)  // 6
+    (0   0.0025 0.05)  // 7
+
+    (0.001 0.005 0)        // 8
+    (0   0.005 0)        // 9
+    (0.001 0.005 0.05)      // 10
+    (0   0.005 0.05)      // 11
+);
+
+blocks
+(
+    // y = 0 to y = d/2: fine at cathode, coarse toward center
+    hex (0 1 2 3 4 5 6 7)    (1 50 100)    simpleGrading (1 5 1)
+
+    // y = d/2 to y = d: coarse at center, fine toward anode
+    hex (3 2 8 9 7 6 10 11)  (1 50 100)    simpleGrading (1 0.2 1)
+);
+
+edges
+(
+);
+
+boundary
+(
+    inlet
+    {
+        type patch;
+        faces
+        (
+            (0 1 2 3)
+            (3 2 8 9)
+        );
+    }
+
+    outlet
+    {
+        type patch;
+        faces
+        (
+            (4 7 6 5)
+            (7 11 10 6)
+        );
+    }
+
+    cathode
+    {
+        type wall;
+        faces
+        (
+            (0 4 5 1)
+        );
+    }
+
+    anode
+    {
+        type wall;
+        faces
+        (
+            (9 8 10 11)
+        );
+    }
+
+    wall
+    {
+        type wall;
+        faces
+        (
+            (0 3 7 4)
+            (1 5 6 2)
+            (3 9 11 7)
+            (2 6 10 8)
+        );
+    }
+);
+
+mergePatchPairs
+(
+);
