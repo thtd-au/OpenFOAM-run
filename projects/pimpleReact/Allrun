@@ -5,18 +5,15 @@ cd "${0%/*}" || exit 1
 
 nProcs="$(foamDictionary system/decomposeParDict -entry numberOfSubdomains -value)"
 
-blockMesh	2>&1 | tee log.blockMesh
-checkMesh	2>&1 | tee log.checkMesh
+runApplication blockMesh
+runApplication checkMesh
 
-decomposePar -lib '(libCustomBCs.so)'	2>&1 | tee log.decomposePar
+runApplication decomposePar
 
-mpirun -np "$nProcs" \
-"$FOAM_USER_APPBIN/pimpleFoamReact" \
--parallel \
--lib '(libCustomBCs.so)' \
-2>&1 | tee log.pimpleFoamReact
+# runParallel pimpleFoamReact
+mpirun -np "$nProcs" pimpleFoamReact -parallel | tee log.pimpleFoamReact
 
-mpirun -np "$nProcs" reconstructPar 2>&1 | tee log.reconstructPar
+runApplication reconstructPar
 
 postProcess -func writeCellCentres -time 0
 

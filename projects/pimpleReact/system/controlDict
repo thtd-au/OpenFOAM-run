@@ -89,6 +89,11 @@ speciesConservation
     electrodePatches       (cathode anode);
 }
 
+libs
+(
+    "libCustomBCs.so"
+);
+
 
 
 // ************************************************************************* //
