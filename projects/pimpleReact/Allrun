@@ -8,12 +8,12 @@ nProcs="$(foamDictionary system/decomposeParDict -entry numberOfSubdomains -valu
 blockMesh	2>&1 | tee log.blockMesh
 checkMesh	2>&1 | tee log.checkMesh
 
-decomposePar -lib '(libfaradaicBCs.so)'	2>&1 | tee log.decomposePar
+decomposePar -lib '(libCustomBCs.so)'	2>&1 | tee log.decomposePar
 
 mpirun -np "$nProcs" \
 "$FOAM_USER_APPBIN/pimpleFoamReact" \
 -parallel \
--lib '(libfaradaicBCs.so)' \
+-lib '(libCustomBCs.so)' \
 2>&1 | tee log.pimpleFoamReact
 
 mpirun -np "$nProcs" reconstructPar 2>&1 | tee log.reconstructPar
