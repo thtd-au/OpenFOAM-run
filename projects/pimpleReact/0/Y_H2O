@@ -14,9 +14,9 @@ boundaryField
 {
     inlet
     {
-        // type            fixedValue;
-        // value           uniform 0.999;
-        type            inertMassFraction;
+        type            fixedValue;
+        value           uniform 0.999;
+        // type            inertMassFraction;
     }
 
     outlet

@@ -34,6 +34,8 @@ FaradayConstant 96485.3329;
 
 absolutePressureReference 101325;
 
+temperature 298.15;
+
 diffusivity 
 {
     H2O     2.3e-9;
@@ -56,12 +58,24 @@ molarMass
     Acetate 0.059044;   
 }   
 
+chargeNumber
+{
+    Hplus    1;
+    OHminus -1;
+    Acetate -1;
+}
+
 henryConstant // [mol/m3 Pa]
 {
     CO2 3.4e-4;
     H2  7.8e-6;
     O2  1.3e-5;
 }
+
+// Potential field
+phiERef     0;
+phiEOrigin  (0 0 0);
+gradPhiE    (0 -100.0 0);  // V/m
 
 reactions
 {
@@ -84,15 +98,15 @@ reactions
         X            50;                // kgDW/m3
     }
 
-    waterEquilibrium
-    {
-        type waterEquilibrium;
+    // waterEquilibrium
+    // {
+    //     type waterEquilibrium;
         
-        Hplus       Hplus;
-        OHminus     OHminus;
+    //     Hplus       Hplus;
+    //     OHminus     OHminus;
         
-        Kw          1e-8; // Kw = 10^-14 (mol/L)^2  = 10^-8 (mol/m3)^2
-    }
+    //     Kw          1e-8; // Kw = 10^-14 (mol/L)^2  = 10^-8 (mol/m3)^2
+    // }
 }
 
 

@@ -61,8 +61,8 @@ concentration
 
 pH
 {
-    runPH          true;
-    writePHField   true;
+    runPH          false;
+    writePHField   false;
 }
 
 // enable species saturation tracking
@@ -75,7 +75,15 @@ saturation
     writePEqTotField false;
 }
 
-// Diagnostics check 
+// ########### Diagnostics ###################3 
+// Transport 
+transportDiagnostics
+{
+    mode    full;   // none | total | full
+    species (Hplus OHminus);
+}
+
+// Conservation
 speciesConservation
 {
     mode                   total;   // none | total | full
@@ -87,6 +95,19 @@ speciesConservation
 
     flowPatches            (inlet outlet);
     electrodePatches       (cathode anode);
+}
+
+// Charge
+chargeDiagnostics
+{
+    mode                   total;        // none | minimal | total | full
+    output                 molarCharge;  // molarCharge | chargeDensity | both
+
+    logToInfo              true;
+    writeToFile            true;
+    writeField             true;
+
+    warningTolerance       1;
 }
 
 libs
