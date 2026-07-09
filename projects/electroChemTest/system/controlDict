@@ -1,0 +1,121 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2512                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     electroChem;
+
+startFrom       startTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         5;
+
+deltaT          0.0025;
+
+writeControl    runTime;
+
+writeInterval   0.25;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable false;
+
+// species 
+// {
+//     printYFields    true;
+//     printDiagnostics true;
+// }
+
+reaction
+{
+    writeSources     false; // RY_* fields 
+}
+// enable reconstruction of concentration fields from mass-fraction
+// concentration
+// {
+//     runConcentration true;
+//     writeCFields     true;
+// }
+
+pH
+{
+    runPH          false;
+    writePHField   false;
+}
+
+// enable species saturation tracking
+saturation
+{
+    runSaturation    false;
+    writeSFields     false;
+    writeSTotField   false;
+    writePEqFields   false;
+    writePEqTotField false;
+}
+
+// ########### Diagnostics ###################3 
+// Transport 
+transportDiagnostics
+{
+    mode    none;   // none | total | full
+    // species (Hplus OHminus);
+}
+
+// Conservation
+speciesConservation
+{
+    mode                   none;   // none | total | full
+    // logToInfo              true;
+    // writeToFile            true;
+    // allPatchDiagnostics    false;
+    // printPatchBreakdown    false;
+    // warningTolerance       1e-20;
+
+    // flowPatches            (inlet outlet);
+    // electrodePatches       (cathode anode);
+}
+
+// Charge
+chargeDiagnostics
+{
+    mode                   none;        // none | minimal | total | full
+    // output                 molarCharge;  // molarCharge | chargeDensity | both
+
+    // logToInfo              true;
+    // writeToFile            true;
+    // writeField             true;
+
+    // warningTolerance       1;
+}
+
+libs
+(
+    "libCustomBCs.so"
+);
+
+
+
+// ************************************************************************* //
+

@@ -1,0 +1,44 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      O2;
+}
+
+dimensions      [0 -3 0 0 1 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+
+    outlet
+    {
+        type            zeroGradient;
+    }
+
+    wall
+    {
+        type            zeroGradient;
+    }
+
+    cathode
+    {
+        type            zeroGradient;
+    }
+    
+    anode
+    {
+        type            faradaicMolarFlux;
+        stoichCoeff     1;
+        nElectrons      4;
+        currentDensity  1;
+        value           uniform 0;
+    }
+}

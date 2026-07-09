@@ -1,0 +1,22 @@
+#!/bin/sh
+cd "${0%/*}" || exit 1
+
+. "${WM_PROJECT_DIR:?}/bin/tools/RunFunctions"
+
+nProcs="$(foamDictionary system/decomposeParDict -entry numberOfSubdomains -value)"
+application="$(foamDictionary system/controlDict -entry application -value)"
+
+runApplication blockMesh
+runApplication checkMesh
+
+runApplication decomposePar
+
+# runParallel pimpleFoamReact
+mpirun -np "$nProcs" $application -parallel | tee log.$application
+
+runApplication reconstructPar
+
+postProcess -func writeCellCentres -time 0
+
+rm -rf processor*
+
