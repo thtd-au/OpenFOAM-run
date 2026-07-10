@@ -42,72 +42,94 @@ timePrecision   6;
 
 runTimeModifiable false;
 
-// species 
+// pH
 // {
-//     printYFields    true;
-//     printDiagnostics true;
+//     runPH          false;
+//     writePHField   false;
 // }
 
-reaction
+species
 {
-    writeSources     false; // RY_* fields 
-}
-// enable reconstruction of concentration fields from mass-fraction
-// concentration
-// {
-//     runConcentration true;
-//     writeCFields     true;
-// }
+    c
+    {
+        print           true;
+        writeSources    false; 
+    }
 
-pH
-{
-    runPH          false;
-    writePHField   false;
+    Y
+    {
+        print           false;
+        write           false; 
+    }
 }
 
-// enable species saturation tracking
-saturation
+diagnostics
 {
-    runSaturation    false;
-    writeSFields     false;
-    writeSTotField   false;
-    writePEqFields   false;
-    writePEqTotField false;
-}
+    transport
+    {
+        print   true;
+        log     true;
 
-// ########### Diagnostics ###################3 
-// Transport 
-transportDiagnostics
-{
-    mode    none;   // none | total | full
-    // species (Hplus OHminus);
-}
+        species (Hplus OHminus);
+    }
 
-// Conservation
-speciesConservation
-{
-    mode                   none;   // none | total | full
-    // logToInfo              true;
-    // writeToFile            true;
-    // allPatchDiagnostics    false;
-    // printPatchBreakdown    false;
-    // warningTolerance       1e-20;
+    conservation
+    {
+        print   true;
+        log     true;
+        mode    residuals; // full | residuals 
+        
+        flowPatches            (inlet outlet);
+        electrodePatches       (cathode anode);
+    }
 
-    // flowPatches            (inlet outlet);
-    // electrodePatches       (cathode anode);
-}
+    charge
+    {
+        output  molarCharge;  // molarCharge | chargeDensity | both
+        print   true;
+        log     true;
+        write   true;     
+    }
 
-// Charge
-chargeDiagnostics
-{
-    mode                   none;        // none | minimal | total | full
-    // output                 molarCharge;  // molarCharge | chargeDensity | both
+    saturation
+    {
+        print
+        {
+            Si      true;
+            STot    true;
+            pEqi    false;
+            pEqTot  false;
+        }
 
-    // logToInfo              true;
-    // writeToFile            true;
-    // writeField             true;
+        write
+        {
+            Si      false;
+            STot    false;
+            pEqi    false;
+            pEqTot  false; 
+        }
+    }
 
-    // warningTolerance       1;
+    inertClosure
+    {
+        print   true;
+    }
+
+    DebyeNumber
+    {
+        print   true;
+        log     true;
+
+        direction 1; // 0=x, 1=y, 2=z
+        minIonicSum 1e-6;      // mol/m3
+
+        write
+        {
+            ionicSum    true;
+            lambda_D    true;
+            E_D         true;
+        }
+    }
 }
 
 libs

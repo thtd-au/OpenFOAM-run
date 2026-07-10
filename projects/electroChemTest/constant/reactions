@@ -36,6 +36,8 @@ absolutePressureReference 101325;
 
 temperature 298.15;
 
+permittivity    [-1 -3 4 0 0 2 0] 6.95e-10; // Absolute electrical permittivity [F/m]
+
 diffusivity 
 {
     H2O     2.3e-9;
